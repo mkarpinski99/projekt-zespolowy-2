@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.item-box {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 2rem;
+  margin-inline: 0 2rem;
+  padding-block: 1rem;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.thumbnail {
+  width: 250px;
+  height: 250px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.no-data {
+  color: rgb(163, 162, 162);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: x-large;
+}
+
+.channel-title {
+  padding-top: 0.5rem;
+  font-size: medium;
+}
+
+.username {
+  padding-top: 0.2rem;
+  font-size: medium;
+}

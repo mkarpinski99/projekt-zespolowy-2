@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="header">
+    <div class="left">
+      <p class="title">
+        <b>
+          {{ channelDetails.stream_title }}
+        </b>
+      </p>
+      <p class="username">
+        <i>
+          {{ channelDetails.username }}
+        </i>
+      </p>
+    </div>
+    <div class="right">
+      <div>
+        <mat-icon class="icon-display">
+          favorite
+        </mat-icon>
+        <p>{{ followersCount }}</p>
+      </div>
+      <div>
+        <mat-icon class="icon-display">
+          visibility
+        </mat-icon>
+        <p>{{ viewersCount }}</p>
+      </div>
+      @if (channelDetails.followed && userAuthenticated()) {
+        <button mat-raised-button color="primary" (click)="unfollowUser()">Przestań obserowawać</button>
+      }
+      @else {
+        <button [disabled]="!userAuthenticated() || getLoggedUsername() == channelDetails.username" mat-raised-button color="primary" (click)="followUser()">Obserwuj</button>
+      }
+    </div>
+  </div>
+  <div class="main-box">
+    <app-player class="player" [options]="playerOptions"></app-player>
+    <app-chatbox
+      class="chatbox"
+      [streamSecretKey]="channelDetails.stream_secret_key"
+      [streamerUsername]="channelDetails.username"></app-chatbox>
+  </div>
+</div>

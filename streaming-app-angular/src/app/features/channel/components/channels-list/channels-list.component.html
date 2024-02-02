@@ -1,0 +1,29 @@
+<div class="container">
+  @if (!loading) {
+    @for (channel of channels; track $index) {
+      <a class="link" [routerLink]="['/channel', channel.username]">
+        <div class="item-box">
+          <img class="thumbnail" [src]="channel.imagePath ? channel.imagePath : 'https://robohash.org/' + channel.username">
+          <div class="channel-title">
+            <b>
+              {{ channel.stream_title }}
+            </b>
+          </div>
+          <div class="username">
+            <i>
+              {{ channel.username }}
+            </i>
+          </div>
+        </div>
+      </a>
+    }
+    @if (channels.length == 0) {
+      <div class="no-data">
+        Brak kanałów
+      </div>
+    }
+  }
+  @else {
+    <mat-spinner class="no-data"></mat-spinner>
+  }
+</div>

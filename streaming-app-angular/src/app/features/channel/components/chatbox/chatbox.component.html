@@ -1,0 +1,31 @@
+<div class="container">
+  <mat-card class="mat-card">
+    <mat-card-content class="mat-card-content">
+      <mat-list role="list" class="messages-box">
+        @for (message of messages; track $index) {
+          <app-chat-message [message]="message"></app-chat-message>
+        }
+        <div #listEnd></div>
+      </mat-list>
+      <div class="send-msg-box">
+        <mat-form-field class="send-msg-field">
+          <mat-label>Wiadomość...</mat-label>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="newMessage"
+            (keydown.enter)="newMessage.length != 0 ? sendNewMessage() : null">
+          <button
+            matSuffix
+            mat-button
+            [disabled]="newMessage.length == 0 || !isAuthenticated()"
+            class="send-button"
+            color="primary"
+            (click)="sendNewMessage()">
+              <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

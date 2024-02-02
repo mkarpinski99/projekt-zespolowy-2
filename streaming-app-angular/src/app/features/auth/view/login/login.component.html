@@ -1,0 +1,27 @@
+<div class="content">
+  <form class="form" [formGroup]="userFromGroup" (ngSubmit)="onLoginSubmit()">
+    <h1 class="title">LOGOWANIE</h1>
+    <mat-form-field>
+      <mat-label>
+        Nazwa użytkownika
+      </mat-label>
+    <input matInput formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Hasło
+      </mat-label>
+      <input matInput formControlName="password" type="password">
+    </mat-form-field>
+    <button mat-raised-button
+      class="submit-button"
+      [color]="userFromGroup.valid ? 'primary' : 'disabled'"
+      type="submit"
+      [disabled]="!userFromGroup.valid"
+    >Zaloguj</button>
+  </form>
+  <p class="link" [routerLink]="['/auth/register']" routerLinkActive="router-link-active" >
+    Nie masz jeszcze konta? Zarejestruj się!
+  </p>
+</div>
+

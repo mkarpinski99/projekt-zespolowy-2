@@ -1,0 +1,24 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+.cart:hover {
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.categoriesButton {
+  margin-left: 1rem;
+}
+
+.logo {
+  font-family: 'Press Start 2P', cursive;
+}

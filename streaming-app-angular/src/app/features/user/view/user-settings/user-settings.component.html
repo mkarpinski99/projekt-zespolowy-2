@@ -1,0 +1,22 @@
+<div class="content">
+  <p>
+    <b>Stream Secretkey: </b> {{ user.stream_secret_key }}
+  </p>
+  <p>
+    <b>Tytuł: </b>{{ user.stream_title }}
+  </p>
+  <div class="form-box">
+    <mat-form-field class="form-field">
+      <mat-label>
+        Nowy tytuł
+      </mat-label>
+      <input matInput type="text" [(ngModel)]="newTitle">
+    </mat-form-field>
+    <button mat-raised-button
+      class="submit-button"
+      color="primary"
+      (click)="changeTitle()">
+        Zmień tytuł
+    </button>
+  </div>
+</div>

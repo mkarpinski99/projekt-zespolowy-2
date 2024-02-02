@@ -1,0 +1,22 @@
+<div class="container">
+  @if (!loading) {
+    @for (category of categories; track $index) {
+      <a class="link" [routerLink]="['/channel/category/', category.categoryName]">
+        <div class="item-box">
+          <img class="thumbnail" [src]="category.categoryImage ? category.categoryImage : 'https://robohash.org/' + category.categoryName">
+          <div class="category-name">
+            <b>{{ category.categoryName }}</b>
+          </div>
+        </div>
+      </a>
+    }
+    @if (categories.length == 0) {
+      <div class="no-data">
+        Brak kategorii
+      </div>
+    }
+  }
+  @else {
+    <mat-spinner class="no-data"></mat-spinner>
+  }
+</div>

@@ -1,0 +1,33 @@
+<div class="content">
+  <form class="form" [formGroup]="userFromGroup" (ngSubmit)="onRegisterSubmit()">
+    <h1 class="title">REJESTRACJA</h1>
+    <mat-form-field>
+      <mat-label>
+        Nazwa użytkownika
+      </mat-label>
+    <input matInput formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Hasło
+      </mat-label>
+      <input matInput formControlName="password" type="password">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Powtórz hasło
+      </mat-label>
+      <input matInput formControlName="repeatPassword" type="password">
+    </mat-form-field>
+    <button mat-raised-button
+      class="submit-button"
+      [color]="userFromGroup.valid ? 'primary' : 'disabled'"
+      type="submit"
+      [disabled]="!userFromGroup.valid"
+    >Zarejestruj</button>
+  </form>
+  <p class="link" [routerLink]="['/auth/login']" routerLinkActive="router-link-active" >
+    Masz już konto? Zaloguj się!
+  </p>
+</div>
+

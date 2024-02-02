@@ -1,0 +1,65 @@
+.main-box {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  max-height: 80vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 5rem;
+  padding-top: 2rem;
+}
+
+.chatbox {
+  flex-grow: 1;
+  margin-left: 2rem;
+  position: relative;
+}
+
+.player {
+  display: block;
+  width: 70vw;
+}
+
+.title {
+  font-size: 3em;
+  padding-bottom: 1rem;
+}
+
+.username {
+  font-size: 2em;
+  padding-bottom: 0.5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 70vw;
+  .left {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .right {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0.7rem;
+    > div{
+      margin-inline: 0.5rem;
+      display: flex;
+      flex-direction: row;
+      * {
+        font-size: x-large;
+        position: relative;
+        top: 20%
+      }
+    }
+  }
+}
+
+.icon-display {
+  padding-right: 0.3rem;
+}

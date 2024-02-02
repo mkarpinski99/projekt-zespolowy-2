@@ -1,0 +1,48 @@
+<mat-toolbar>
+  <a class="link logo" routerLink="/">
+    Streaming App
+  </a>
+  <span class="spacer"></span>
+  @if (isAuthenticated()) {
+    <button mat-button [routerLink]="['/channel/followed']" routerLinkActive="router-link-active">
+      <a>
+        Obserwowane
+      </a>
+    </button>
+  }
+  <button mat-button [routerLink]="['/category']" routerLinkActive="router-link-active" >
+    <a>
+      Kategorie
+    </a>
+  </button>
+  <button mat-button [routerLink]="['/channel/list']" routerLinkActive="router-link-active" >
+    <a>
+      Kanały
+    </a>
+  </button>
+  @if (!isAuthenticated()) {
+    <button mat-button [routerLink]="['/auth/login']" routerLinkActive="router-link-active" >
+      Logowanie
+    </button>
+    <button mat-button [routerLink]="['/auth/register']" routerLinkActive="router-link-active" >
+      Rejesracja
+    </button>
+  }
+  @if (isAuthenticated()) {
+    <button mat-fab extended [matMenuTriggerFor]="menu" color="primary" aria-label="Menu button">
+      <mat-icon>menu</mat-icon>
+      {{ getLoggedUsername() }}
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/channel/', getLoggedUsername()]" routerLinkActive="router-link-active" >
+      <span>Profil</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/settings']" routerLinkActive="router-link-active" >
+      <span>Ustawienia profilu</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <span>Wyloguj</span>
+    </button>
+  </mat-menu>
+  }
+</mat-toolbar>

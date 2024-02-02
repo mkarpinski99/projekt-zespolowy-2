@@ -1,0 +1,17 @@
+.messages-box {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  flex-grow: 1;
+  max-height: 70vh;
+  min-height: 70vh;
+}
+
+.send-msg-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.send-msg-field {
+  flex-grow: 1;
+}
